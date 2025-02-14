@@ -1,4 +1,4 @@
-package aulas;
+package aulas.oo;
 
 public class Carro {
 

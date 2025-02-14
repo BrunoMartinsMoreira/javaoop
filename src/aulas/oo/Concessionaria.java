@@ -1,4 +1,4 @@
-package aulas;
+package aulas.oo;
 
 public class Concessionaria {
   public void vender() {

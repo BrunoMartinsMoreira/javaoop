@@ -1,4 +1,4 @@
-package aulas.strings;
+package br.com.moreira.javaoop.aulas.strings;
 
 public class Strings {
   public static void main(String[] args) {

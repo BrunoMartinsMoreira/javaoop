@@ -1,4 +1,4 @@
-package aulas.oo;
+package br.com.moreira.javaoop.aulas.oo;
 
 public class Carro {
 

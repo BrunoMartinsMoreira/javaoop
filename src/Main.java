@@ -1,4 +1,4 @@
-import aulas.oo.Concessionaria;
+import br.com.moreira.javaoop.aulas.oo.Concessionaria;
 
 public class Main {
   public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package aulas.statics;
+package br.com.moreira.javaoop.aulas.statics;
 
 public class Utils {
   public static int VAR = 10;

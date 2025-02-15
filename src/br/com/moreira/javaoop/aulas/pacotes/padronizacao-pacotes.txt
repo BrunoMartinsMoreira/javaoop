@@ -1,0 +1,14 @@
+Organizacao - nome da empresa
+Artefato - Projeto
+
+Exemplo:
+ Empresa: moreira.com.br
+ Projeto: javaoop
+Nome do pacore:
+ - br.com.moreira.javaoop.aulas
+ - br.com.moreira.javaoop.aulas.oo
+ - br.com.moreira.javaoop.aulas.pacotes
+ - br.com.moreira.javaoop.statics
+ - br.com.moreira.javaoop.aulas.strings
+ - br.com.moreira.javaoop.exercicios
+ - br.com.moreira.javaoop.time

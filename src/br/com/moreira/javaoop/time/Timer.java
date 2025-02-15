@@ -1,4 +1,4 @@
-package time;
+package br.com.moreira.javaoop.time;
 
 public class Timer {
   public static void main(String[] args) {

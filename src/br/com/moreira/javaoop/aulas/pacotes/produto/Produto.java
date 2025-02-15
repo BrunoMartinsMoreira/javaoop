@@ -1,10 +1,11 @@
-package br.com.moreira.javaoop.aulas.pacotes;
+package br.com.moreira.javaoop.aulas.pacotes.produto;
 
 public class Produto {
 
   private  int id;
   private double preco;
   private String descricao;
+
 
   public Produto(int id, double preco, String descricao) {
     this.id = id;

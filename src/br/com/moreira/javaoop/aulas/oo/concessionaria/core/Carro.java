@@ -1,4 +1,4 @@
-package br.com.moreira.javaoop.aulas.oo;
+package br.com.moreira.javaoop.aulas.oo.concessionaria.core;
 
 public class Carro {
 

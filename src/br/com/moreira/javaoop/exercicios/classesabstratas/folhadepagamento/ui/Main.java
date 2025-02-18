@@ -1,6 +1,6 @@
-package br.com.moreira.javaoop.exercicios.folhadepagamento.ui;
+package br.com.moreira.javaoop.exercicios.classesabstratas.folhadepagamento.ui;
 
-import br.com.moreira.javaoop.exercicios.folhadepagamento.core.*;
+import br.com.moreira.javaoop.exercicios.classesabstratas.folhadepagamento.core.*;
 
 public class Main {
   public static void main(String[] args) {

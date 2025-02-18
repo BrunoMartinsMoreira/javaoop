@@ -1,6 +1,4 @@
-package br.com.moreira.javaoop.exercicios.folhadepagamento.core;
-
-import java.util.Objects;
+package br.com.moreira.javaoop.exercicios.classesabstratas.folhadepagamento.core;
 
 public class Chefe extends Funcionario {
   private float salarioBase;

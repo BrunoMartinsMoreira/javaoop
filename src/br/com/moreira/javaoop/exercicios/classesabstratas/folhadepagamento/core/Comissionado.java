@@ -1,4 +1,4 @@
-package br.com.moreira.javaoop.exercicios.folhadepagamento.core;
+package br.com.moreira.javaoop.exercicios.classesabstratas.folhadepagamento.core;
 
 public class Comissionado extends Funcionario {
   private float salarioBase;

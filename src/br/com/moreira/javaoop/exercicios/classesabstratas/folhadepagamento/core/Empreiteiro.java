@@ -1,4 +1,4 @@
-package br.com.moreira.javaoop.exercicios.folhadepagamento.core;
+package br.com.moreira.javaoop.exercicios.classesabstratas.folhadepagamento.core;
 
 public class Empreiteiro extends Funcionario {
   private float valorEmpreita;

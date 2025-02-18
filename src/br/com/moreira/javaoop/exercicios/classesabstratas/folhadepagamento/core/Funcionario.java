@@ -1,4 +1,4 @@
-package br.com.moreira.javaoop.exercicios.folhadepagamento.core;
+package br.com.moreira.javaoop.exercicios.classesabstratas.folhadepagamento.core;
 
 public abstract class Funcionario {
   protected  int numRegistro;

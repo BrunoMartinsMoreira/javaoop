@@ -11,4 +11,4 @@ Nome do pacore:
  - br.com.moreira.javaoop.statics
  - br.com.moreira.javaoop.aulas.strings
  - br.com.moreira.javaoop.exercicios
- - br.com.moreira.javaoop.time
+ - br.com.moreira.javaoop.aulas.sobrecargademetodos.time

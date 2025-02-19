@@ -1,4 +1,4 @@
-package br.com.moreira.javaoop.time;
+package br.com.moreira.javaoop.aulas.sobrecargademetodos.time;
 
 //Sobrecarga de metodos: mesmo nome de metodo com parametros diferentes
 public class Time {

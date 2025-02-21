@@ -11,7 +11,7 @@ public class Main {
       p.setDescricao("");
 
       System.out.println(p);
-    } catch (ProdutoException e) {
+    } catch (ProdutoException | RuntimeException  e) {
       System.out.println("Deu ruim! ");
       e.printStackTrace();
     } catch (Exception e) {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Loja {
   public static void main(String[] args) {
-    ArrayList<br.com.moreira.javaoop.aulas.utilitarios.arraylists.Produto> produtos = new ArrayList<br.com.moreira.javaoop.aulas.utilitarios.arraylists.Produto>();
+    ArrayList<Produto> produtos = new ArrayList<br.com.moreira.javaoop.aulas.utilitarios.arraylists.Produto>();
 
     produtos.add(new Produto(1, "Sapato", 45.56));
     produtos.add(new Produto(2, "Bota", 450.56));

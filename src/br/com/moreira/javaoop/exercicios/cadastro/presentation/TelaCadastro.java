@@ -94,13 +94,7 @@ public class TelaCadastro extends JFrame {
         String nome = campoNome.getText();
         String cpf = campoCpf.getText();
         TipoSexo sexo = (TipoSexo)campoSexo.getSelectedItem();
-
-        System.out.println("Nome: " +nome);
-        System.out.println("CPF: "+ cpf);
-        System.out.println("Sexo: "+ sexo);
-
         Cliente cliente = new Cliente(nome, cpf, sexo);
-        System.out.println(cliente);
 
         JOptionPane.showMessageDialog(null, cliente);
       }

@@ -1,6 +1,7 @@
 package br.com.moreira.javaoop.exercicios.cadastro.domain;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Cliente {
@@ -67,12 +68,29 @@ public class Cliente {
 
   @Override
   public String toString() {
-    return "Cliente{" +
-        "codigo=" + codigo +
-        ", nome='" + nome + '\'' +
-        ", cpf='" + cpf + '\'' +
-        ", sexo=" + sexo +
-        ", foto=" + Arrays.toString(foto) +
-        '}';
+    return "-------------------------DADOS DO CLIENTE: ------------------------" +
+        "\n- CODIGO: " + codigo +
+        "\n- NOME: " + nome +
+        "\n- CPF: " + cpf +
+        "\n- SEXO: " + sexo +
+        "\n- FOTO: " + Arrays.toString(foto)+
+        "\n----------------------------------------------------------------------------";
+
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    Cliente cliente = (Cliente) o;
+    return Objects.equals(codigo, cliente.codigo) &&
+           Objects.equals(nome, cliente.nome) &&
+           Objects.equals(cpf, cliente.cpf) &&
+           sexo == cliente.sexo &&
+           Objects.deepEquals(foto, cliente.foto);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(codigo, nome, cpf, sexo, Arrays.hashCode(foto));
   }
 }

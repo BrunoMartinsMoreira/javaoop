@@ -25,6 +25,7 @@ public class CadastroEmMemoria implements Cadastro<Cliente> {
     if(!this.setClientes.contains(cliente)) {
       this.setClientes.add(cliente);
     }
+    clientes.sort(Cliente::compareTo);
     JOptionPane.showMessageDialog(null, cliente);
   }
 

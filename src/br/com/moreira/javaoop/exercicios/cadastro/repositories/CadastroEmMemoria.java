@@ -4,10 +4,14 @@ import br.com.moreira.javaoop.exercicios.cadastro.domain.Cliente;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 public class CadastroEmMemoria implements Cadastro<Cliente> {
   ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+  Set<Cliente> setClientes = new HashSet<Cliente>();
 
   @Override
   public void salvar(Cliente cliente) {
@@ -18,11 +22,20 @@ public class CadastroEmMemoria implements Cadastro<Cliente> {
     }
 
     this.clientes.add(cliente);
+    if(!this.setClientes.contains(cliente)) {
+      this.setClientes.add(cliente);
+    }
     JOptionPane.showMessageDialog(null, cliente);
   }
 
   @Override
   public Cliente buscar(UUID codigo) {
+    this.setClientes
+        .stream()
+        .filter(c -> c.getCodigo().equals(codigo))
+        .findFirst()
+        .orElse(null);
+
     return this.clientes
             .stream()
             .filter((cliente)-> cliente.getCodigo().equals(codigo))

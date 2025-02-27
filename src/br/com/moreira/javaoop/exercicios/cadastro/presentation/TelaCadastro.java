@@ -2,6 +2,8 @@ package br.com.moreira.javaoop.exercicios.cadastro.presentation;
 
 import br.com.moreira.javaoop.exercicios.cadastro.domain.Cliente;
 import br.com.moreira.javaoop.exercicios.cadastro.domain.TipoSexo;
+import br.com.moreira.javaoop.exercicios.cadastro.repositories.Cadastro;
+import br.com.moreira.javaoop.exercicios.cadastro.repositories.CadastroEmMemoria;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,8 +22,10 @@ public class TelaCadastro extends JFrame {
   private JFileChooser campoFoto;
 
   private JButton botaoSalvar;
+  private Cadastro<Cliente> cadastro;
 
-  public TelaCadastro() {
+  public TelaCadastro(Cadastro<Cliente> cadastro) {
+    this.cadastro = cadastro;
     construirTela();
   }
 
@@ -89,14 +93,14 @@ public class TelaCadastro extends JFrame {
 
   private ActionListener acaoBotaoSalvar() {
     return  new ActionListener() {
+
       @Override
       public void actionPerformed(ActionEvent e) {
         String nome = campoNome.getText();
         String cpf = campoCpf.getText();
         TipoSexo sexo = (TipoSexo)campoSexo.getSelectedItem();
         Cliente cliente = new Cliente(nome, cpf, sexo);
-
-        JOptionPane.showMessageDialog(null, cliente);
+        cadastro.salvar(cliente);
       }
     };
   }

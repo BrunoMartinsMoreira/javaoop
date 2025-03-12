@@ -2,6 +2,7 @@ package br.com.moreira.javaoop.exercicios.cadastro.presentation;
 
 import br.com.moreira.javaoop.exercicios.cadastro.domain.Cliente;
 import br.com.moreira.javaoop.exercicios.cadastro.domain.TipoSexo;
+import br.com.moreira.javaoop.exercicios.cadastro.domain.exceptions.CpfInvalidoException;
 import br.com.moreira.javaoop.exercicios.cadastro.repositories.Cadastro;
 import br.com.moreira.javaoop.exercicios.cadastro.repositories.CadastroEmMemoria;
 
@@ -100,7 +101,13 @@ public class TelaCadastro extends JFrame {
         String cpf = campoCpf.getText();
         TipoSexo sexo = (TipoSexo)campoSexo.getSelectedItem();
         Cliente cliente = new Cliente(nome, cpf, sexo);
-        cadastro.salvar(cliente);
+        try {
+          cadastro.salvar(cliente);
+        } catch (CpfInvalidoException ex) {
+          JOptionPane.showMessageDialog(null, ex.getMessage());
+        }catch (Exception ex) {
+          JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
       }
     };
   }

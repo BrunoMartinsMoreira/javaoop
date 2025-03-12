@@ -1,6 +1,8 @@
 package br.com.moreira.javaoop.exercicios.cadastro.repositories;
 
 import br.com.moreira.javaoop.exercicios.cadastro.domain.Cliente;
+import br.com.moreira.javaoop.exercicios.cadastro.domain.exceptions.CpfInvalidoException;
+import br.com.moreira.javaoop.exercicios.cadastro.domain.validators.ClienteValidator;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -14,13 +16,14 @@ public class CadastroEmMemoria implements Cadastro<Cliente> {
   Set<Cliente> setClientes = new HashSet<Cliente>();
 
   @Override
-  public void salvar(Cliente cliente) {
+  public void salvar(Cliente cliente) throws CpfInvalidoException {
     Cliente clienteExistente = this.buscar(cliente.getCodigo());
     if(clienteExistente != null) {
       JOptionPane.showMessageDialog(null, cliente);
       return;
     }
 
+    ClienteValidator.validarCpf(cliente);
     this.clientes.add(cliente);
     if(!this.setClientes.contains(cliente)) {
       this.setClientes.add(cliente);

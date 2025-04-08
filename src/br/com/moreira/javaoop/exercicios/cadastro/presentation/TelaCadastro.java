@@ -10,6 +10,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.net.URL;
+import java.util.Objects;
 
 public class TelaCadastro extends JFrame {
   private JLabel labelNome;
@@ -24,6 +27,7 @@ public class TelaCadastro extends JFrame {
 
   private JButton botaoSalvar;
   private Cadastro<Cliente> cadastro;
+  private  JButton botaoFoto;
 
   public TelaCadastro(Cadastro<Cliente> cadastro) {
     this.cadastro = cadastro;
@@ -90,7 +94,45 @@ public class TelaCadastro extends JFrame {
     getContentPane().add(botaoSalvar);
   }
 
-  private void adicionarComponenteFoto(){}
+  private void adicionarComponenteFoto(){
+    String fotoPath = "/br/com/moreira/javaoop/exercicios/cadastro/presentation/img.png";
+    URL fotoUrl = getClass().getResource(fotoPath);
+    ImageIcon imageIcon = new ImageIcon(fotoUrl);
+
+    Image image = imageIcon
+        .getImage()
+        .getScaledInstance(200,200, Image.SCALE_SMOOTH);
+
+    imageIcon = new ImageIcon(image);
+
+    labelFoto = new JLabel();
+    labelFoto.setIcon(imageIcon);
+    labelFoto.setBounds(500,50,200, 200);
+    getContentPane().add(labelFoto);
+
+    botaoFoto = new JButton("ALTERAR FOTO");
+    botaoFoto.setBounds(500,400,200,40);
+    botaoFoto.addActionListener(acaoBotaoFoto());
+    getContentPane().add(botaoFoto);
+  }
+
+  private ActionListener acaoBotaoFoto() {
+    return new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        JFileChooser fileChooser = new JFileChooser();
+        int opcao = fileChooser.showOpenDialog(TelaCadastro.this);
+
+        if(opcao == JFileChooser.APPROVE_OPTION) {
+          File fotoFile = fileChooser.getSelectedFile();
+          String path = fotoFile.getAbsolutePath();
+
+          ImageIcon imageIcon = new ImageIcon(path);
+          labelFoto.setIcon(imageIcon);
+        }
+      }
+    };
+  }
 
   private ActionListener acaoBotaoSalvar() {
     return  new ActionListener() {

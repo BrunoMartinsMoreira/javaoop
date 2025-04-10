@@ -5,6 +5,7 @@ import br.com.moreira.javaoop.exercicios.cadastro.domain.TipoSexo;
 import br.com.moreira.javaoop.exercicios.cadastro.domain.exceptions.CpfInvalidoException;
 import br.com.moreira.javaoop.exercicios.cadastro.repositories.Cadastro;
 import br.com.moreira.javaoop.exercicios.cadastro.repositories.CadastroEmMemoria;
+import br.com.moreira.javaoop.exercicios.cadastro.utils.FotoToArrayByte;
 
 import javax.swing.*;
 import java.awt.*;
@@ -143,6 +144,9 @@ public class TelaCadastro extends JFrame {
         String cpf = campoCpf.getText();
         TipoSexo sexo = (TipoSexo)campoSexo.getSelectedItem();
         Cliente cliente = new Cliente(nome, cpf, sexo);
+
+        byte[] byteArray = FotoToArrayByte.run(labelFoto.getIcon());
+        cliente.setFoto(byteArray);
         try {
           cadastro.salvar(cliente);
         } catch (CpfInvalidoException ex) {

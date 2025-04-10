@@ -3,6 +3,7 @@ package br.com.moreira.javaoop.exercicios.cadastro.repositories;
 import br.com.moreira.javaoop.exercicios.cadastro.domain.Cliente;
 import br.com.moreira.javaoop.exercicios.cadastro.domain.exceptions.CpfInvalidoException;
 import br.com.moreira.javaoop.exercicios.cadastro.domain.validators.ClienteValidator;
+import br.com.moreira.javaoop.exercicios.cadastro.utils.FileManager;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class CadastroEmMemoria implements Cadastro<Cliente> {
 
     ClienteValidator.validarCpf(cliente);
     this.clientes.add(cliente);
+    FileManager.persistir(cliente.getNome() + ".jpg", cliente.getFoto());
     if(!this.setClientes.contains(cliente)) {
       this.setClientes.add(cliente);
     }

@@ -73,7 +73,6 @@ public class Cliente implements Comparable<Cliente> {
         "\n- NOME: " + nome +
         "\n- CPF: " + cpf +
         "\n- SEXO: " + sexo +
-        "\n- FOTO: " + Arrays.toString(foto)+
         "\n----------------------------------------------------------------------------";
 
   }

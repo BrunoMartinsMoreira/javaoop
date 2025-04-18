@@ -11,6 +11,14 @@ public class Cliente implements Comparable<Cliente> {
   private TipoSexo sexo;
   private byte[] foto;
 
+  public Cliente(UUID codigo, String nome, String cpf, TipoSexo sexo, byte[] foto) {
+    this.codigo = codigo;
+    this.nome = nome;
+    this.cpf = cpf;
+    this.sexo = sexo;
+    this.foto = foto;
+  }
+
   public Cliente(String nome, String cpf, TipoSexo sexo, byte[] foto) {
     this.codigo = UUID.randomUUID();
     this.nome = nome;

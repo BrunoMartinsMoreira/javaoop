@@ -149,9 +149,7 @@ public class TelaCadastro extends JFrame {
         cliente.setFoto(byteArray);
         try {
           cadastro.salvar(cliente);
-        } catch (CpfInvalidoException ex) {
-          JOptionPane.showMessageDialog(null, ex.getMessage());
-        }catch (Exception ex) {
+        } catch (Exception ex) {
           JOptionPane.showMessageDialog(null, ex.getMessage());
         }
       }

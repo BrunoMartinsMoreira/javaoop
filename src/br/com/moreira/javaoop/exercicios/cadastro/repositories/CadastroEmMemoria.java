@@ -6,25 +6,25 @@ import br.com.moreira.javaoop.exercicios.cadastro.domain.validators.ClienteValid
 import br.com.moreira.javaoop.exercicios.cadastro.utils.FileManager;
 
 import javax.swing.JOptionPane;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-import java.util.function.Predicate;
+import java.util.*;
 
 public class CadastroEmMemoria implements Cadastro<Cliente> {
   ArrayList<Cliente> clientes = new ArrayList<Cliente>();
   Set<Cliente> setClientes = new HashSet<Cliente>();
 
   @Override
-  public void salvar(Cliente cliente) throws CpfInvalidoException {
-    Cliente clienteExistente = this.buscar(cliente.getCodigo());
+  public void salvar(Cliente cliente) {
+    Cliente clienteExistente = (Cliente) this.buscar(cliente.getCodigo());
     if(clienteExistente != null) {
       JOptionPane.showMessageDialog(null, cliente);
       return;
     }
 
-    ClienteValidator.validarCpf(cliente);
+    try {
+      ClienteValidator.validarCpf(cliente);
+    } catch (CpfInvalidoException e) {
+      throw new RuntimeException(e);
+    }
     this.clientes.add(cliente);
     FileManager.persistir(cliente.getNome() + ".jpg", cliente.getFoto());
     if(!this.setClientes.contains(cliente)) {
@@ -35,18 +35,18 @@ public class CadastroEmMemoria implements Cadastro<Cliente> {
   }
 
   @Override
-  public Cliente buscar(UUID codigo) {
+  public List<Cliente> buscar(UUID codigo) {
     this.setClientes
         .stream()
         .filter(c -> c.getCodigo().equals(codigo))
         .findFirst()
         .orElse(null);
 
-    return this.clientes
-            .stream()
-            .filter((cliente)-> cliente.getCodigo().equals(codigo))
-            .findFirst()
-            .orElse(null);
+    return Collections.singletonList(this.clientes
+        .stream()
+        .filter((cliente) -> cliente.getCodigo().equals(codigo))
+        .findFirst()
+        .orElse(null));
   }
 
   @Override
@@ -56,7 +56,7 @@ public class CadastroEmMemoria implements Cadastro<Cliente> {
 
   @Override
   public void atualizar(Cliente c) {
-    Cliente cliente = this.buscar(c.getCodigo());
+    Cliente cliente = (Cliente) this.buscar(c.getCodigo());
 
     if(cliente != null) {
       cliente.setCpf(c.getCpf());
